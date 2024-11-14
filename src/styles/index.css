@@ -1,0 +1,81 @@
+/* 
+    General Styles
+*/
+.logo{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+}
+.navbar {
+    padding: 0 !important;
+    background-color: #ffffff !important;
+    margin: 0 !important;
+}
+
+.byellow {
+    background-color: #f7d70f !important;
+}
+
+.fa-heart{
+    border: 1px solid #f7d70f;
+    padding: 10px;
+    color:#f7d70f
+}
+.cyellow {
+    color: red !important;
+}
+.cuadrado { 
+    display: flex;
+    justify-content: center;
+    height: 450px; 
+    overflow-x: auto; 
+    overflow-y: hidden; 
+    
+    white-space: nowrap;
+ } 
+.high{
+    height: 600px !important; 
+}
+  .contenido { 
+  
+    height: 137px;
+    margin: 30px;
+    
+    }
+
+    .card{
+        min-width: 304px;
+     
+    }
+    .card img,.card{
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .card-body{
+        background-color: #f2f2f2;
+    }
+    button{
+        border: none;
+    }
+    button:focus {
+        outline: none !important; 
+        box-shadow: none !important;
+    }
+    li{
+        list-style: none;
+    }
+    .line-break {
+        max-width: 300px; /* Ajusta este valor al tamaño deseado */
+        word-wrap: break-word; /* Hace que las palabras se dividan si son muy largas */
+        overflow-wrap: break-word; /* También hace que las palabras se dividan si son muy largas */
+        white-space: normal; /* Permite el ajuste de las líneas */
+      }
+      .shortDimen{
+        width: 303px;
+        height: 300px;
+      }
+      .highDimen{
+        height: 435px;
+        width: 486px;
+      }
