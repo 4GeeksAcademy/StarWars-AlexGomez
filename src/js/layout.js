@@ -1,31 +1,30 @@
-import React from "react";
+import React,{useContext} from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
 import  {Home}  from "./views/home";
 import { Description } from "./views/Description.jsx";
-
 import injectContext from "./store/appContext";
+import { Navbar } from "./component/Navbar.jsx";
+import { Context } from "./store/appContext.js";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
 
 const Layout = () => {
 	
+	const { store, actions } = useContext(Context);
 	const basename = process.env.BASENAME || "";
 
 	return (
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/home" element={<Home />} />
-						<Route path="/Description/:id" element={<Description />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
+				 {!store.intro?<Navbar />:null} 
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/home" element={<Home />} />
+							<Route path="/Description/:id" element={<Description />} />
+							<Route path="*" element={<h1>Not found!</h1>} />
+						</Routes>
+	
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

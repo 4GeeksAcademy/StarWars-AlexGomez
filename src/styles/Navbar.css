@@ -1,0 +1,112 @@
+.navbar {
+    padding: 0 !important;
+    background-color: transparent !important;
+    margin: 0 !important;
+  }
+
+  
+.logo-container {
+    position: relative;
+    perspective: 1000px; 
+    
+}
+.logo-container {
+   /* filter: drop-shadow(0 0 2px #00000009);*/
+    text-shadow: 
+    0 0 5px #00ff00,
+    0 0 10px #00ff00,
+    0 0 20px #00ff00, 
+    0 0 40px #00ff00, 
+    0 0 80px #00ff00;
+}
+.badge {
+    text-shadow: none;
+}
+.logo {
+    width: 300px; 
+    height: 300px; 
+    filter: drop-shadow(0 5px 5px rgba(0, 0, 0, 0.7));
+    transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+    transform: rotateY(0deg); 
+
+}
+
+.favorito {
+height: 100px;
+display: flex;
+align-items: center;
+
+    margin: 0 auto;
+}
+.logo:hover,.favorito:hover {
+    filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.9));
+    transform: rotateY(360deg); /* Añade rotación 3D */
+}
+
+@keyframes shine {
+    0% {
+        background-position: -150%;
+    }
+    100% {
+        background-position: 150%;
+    }
+}
+
+.logo-container::before, .favorito::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    opacity: 0.7;
+    pointer-events: none; /* No interfiere con la interacción del usuario */
+    animation: shine 2s infinite;
+    z-index: 1;
+}
+.btn_favorito{
+  
+    
+    background: none;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 1.2rem;
+
+}
+.logo {
+    height: 40px;
+
+  }
+  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+  }
+  
+  .dropdown-menu {
+    min-width: 200px;
+  }
+  .fav{
+   
+    /*text-shadow: 0px 0px 5px rgba(255, 255, 0, 0.582), 0px 0px 10px rgba(255, 255, 0, 0.658), 0px 0px 20px rgba(255, 255, 0, 0.815), 0px 0px 40px yellow, 0px 0px 80px yellow;
+  */}
+  .navbar-brand{
+
+   /* filter: 
+    drop-shadow(0px 0px 5px rgba(3, 3, 3, 0.2))*/
+    }
+    .navbar-light .navbar-toggler-icon {
+        border: none;
+        background-image: url('../img/knowledge_education_online_hands_on_project_based_learning_business_icon_262291.ico');
+    }
+    .navbar>.container, .navbar>.container-fluid, .navbar>.container-lg, .navbar>.container-md, .navbar>.container-sm, .navbar>.container-xl, .navbar>.container-xxl {
+        display: flex;
+        flex-wrap: inherit;
+        align-items: center;
+        justify-content: space-around !important;
+        margin-top: -65px !important;
+    }

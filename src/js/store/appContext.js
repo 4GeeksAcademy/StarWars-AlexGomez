@@ -1,29 +1,29 @@
 import React, { useState, useEffect, createContext } from "react";
 import getState from "./flux.js";
-import fetchPeople from "../component/fetchPeople";
-import fetchPlanets from "../component/fetchPlanets";
-import fetchVehicles from "../component/fetchVehicles";
-
 export const Context = createContext(null);
 
 const injectContext = (PassedComponent) => {
+
   const StoreWrapper = (props) => {
     const [state, setState] = useState(
       getState({
         getStore: () => state.store,
         getActions: () => state.actions,
         setStore: (updatedStore) =>
-          setState((prevState) => ({
-            store: { ...prevState.store, ...updatedStore },
-            actions: { ...prevState.actions },
-          })),
+         setState({
+            store: Object.assign(state.store, updatedStore),
+            actions: { ...state.actions }
+          })
       })
     );
 
     useEffect(() => {
-      fetchPeople(setState, state);
-      fetchPlanets(setState, state);
-      fetchVehicles(setState, state);
+      state.actions.fetchCategoryData("films");
+      state.actions.fetchCategoryData("people");
+      state.actions.fetchCategoryData("planets");
+      state.actions.fetchCategoryData("species");
+      state.actions.fetchCategoryData("starships");
+      state.actions.fetchCategoryData("vehicles");
     }, []);
 
     return (

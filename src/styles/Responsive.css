@@ -1,0 +1,70 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .example {background: red;}
+    .p_intro{
+      font-size: 0.5em;
+      width: 70%;
+      margin: 0 auto;
+    }
+    .intro {
+        font-size: 170%;
+    }
+    #board {
+        font-family: 'Netron', sans-serif;
+        font-size: 200%;
+    }
+    body{
+        height: 80%;
+    }
+
+    .logo {
+        filter: drop-shadow(0 55px 55px rgba(255, 222, 32, 0.7));
+        width: 210px !important;
+        height: 131px !important;
+        color: white !important;
+    }
+    .btn .fs-2{
+        color: white !important;
+
+    }
+    
+      .popup.show {
+        visibility: visible !important;
+        opacity: 1;
+      }
+      
+  }
+  
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+  @media only screen and (min-width: 600px) {
+    .example {background: green;}
+  }
+  
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (min-width: 768px) {
+    .example {background: blue;}
+  } 
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (max-height: 892px) {
+    .cards_right {
+      padding: 20px;
+      margin: 0 auto;
+      width: 1025px;
+      position: relative;
+      bottom: 202px;
+      left: 169px;
+  }
+    .example {background: orange;}
+  } 
+  
+  /* Extra large devices (large laptops and desktops, 1200px and up) */
+  @media only screen and (min-width: 1200px) {
+    .cards_right {
+      padding: 20px;
+      margin: 0 auto;
+      width: 1025px;
+      }
+      
+    .example {background: pink;}
+  }
