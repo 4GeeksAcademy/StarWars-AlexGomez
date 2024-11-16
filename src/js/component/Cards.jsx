@@ -1,55 +1,59 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Context } from "../store/appContext";
-import { Card } from "../component/Card.jsx";
+import PeopleCards from "./PeopleCards.jsx";
+import PlanetsCards from "./PlanetsCards.jsx";
+import FilmsCards from "./FilmsCards.jsx";
+import StarshipsCards from "./StarshipsCard.jsx";
+import VehiclesCards from "./VehiclesCard.jsx";
+import SpeciesCard from "./SpeciesCard.jsx";
 
 export const Cards = () => {
   const { store } = useContext(Context);
   const [cardsData, setCardsData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [type, setType] = useState("people");
-console.log("https://starwars-visualguide.com/assets/img/planets/1.jpg");
 
-  
   useEffect(() => {
-    switch (store.index) {
-      case 0:
-        setType("films");
-        break;
-      case 1:
-        setType("people");
-        break;
-      case 2:
-        setType("planets");
-        break;
-      case 3:
-        setType("species");
-        break;
-     case 4:
-      setType("starships");
-            break;
-     case 5:
-       setType("vehicles");
-           break;
-      default:
-        setType("people");
-        break;
-    }
+    const types = ["films", "people", "planets", "species", "starships", "vehicles"];
+    const newType = types[store.index] || "people";
+    setType(newType);
   }, [store.index]);
 
   useEffect(() => {
-    setCardsData(store[type]);
-    setLoading(false);
-  }, [store[type]]);
-
-  const chunkCards = (array, size) => {
-    const result = [];
-    for (let i = 0; i < array.length; i += size) {
-      result.push(array.slice(i, i + size));
+    if (store[type]) {
+      setCardsData(store[type]);
+      setLoading(false);
     }
-    return result;
-  };
+  }, [store, type]);
 
-  const groupedCards = chunkCards(cardsData, 3);
+  const renderLoading = () => (
+    <div className="spinner-border text-primary" role="status">
+      <span className="visually-hidden">Loading...</span>
+    </div>
+  );
+
+  const renderCards = () => {
+    if (loading) return renderLoading();
+
+    if (cardsData.length === 0) return <p>No data available for {type}</p>;
+
+    switch (type) {
+      case "people":
+        return <PeopleCards data={cardsData} />;
+      case "planets":
+        return <PlanetsCards data={cardsData} />;
+      case "films":
+        return <FilmsCards data={cardsData} />;
+      case "species":
+        return <SpeciesCard data={cardsData} />;
+      case "starships":
+        return <StarshipsCards data={cardsData} />;
+      case "vehicles":
+        return <VehiclesCards data={cardsData} />;
+      default:
+        return null;
+    }
+  };
 
   return (
     <div className="cards_right">
@@ -57,70 +61,12 @@ console.log("https://starwars-visualguide.com/assets/img/planets/1.jpg");
         <div className="container">
           <div className="row">
             <div className="col-12">
-              <h3 className="mb-3">Carousel Cards</h3>
-            </div>
-            <div className="col-6 text-right">
-              <button
-                className="btn-next btn btn-secondary mb-3 mr-1"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev"
-              >
-                <i className="fa fa-arrow-left"></i>
-              </button>
-              <button
-                className="btn btn-secondary mb-3 btn-next"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next"
-              >
-                <i className="fa fa-arrow-right"></i>
-              </button>
+              <h3 className="mb-3">{type === "people" ? "Characters" : type}</h3>
             </div>
           </div>
-          <div
-            id="carouselExampleIndicators"
-            className="carousel slide col-12"
-            data-bs-ride="carousel"
-          >
-            <div className="carousel-inner">
-              {loading ? (
-                <div className="carousel-item active">
-                  <p>Loading...</p>
-                </div>
-              ) : (
-                groupedCards.map((group, index) => (
-                  <div
-                    key={index}
-                    className={`carousel-item ${index === 0 ? "active" : ""}`}
-                  >
-                    <div className="row">
-                        
-                        
-                      {group.map((item, idx) => (
-                        <div
-                          key={idx}
-                          className="col-12 col-lg-4 mb-3 card-container"
-                        >
-                        
-                            
-                          <Card
-                            title={item.title || item.name}
-                            type={type}
-                            key={item.uid}
-                            name={item.name}
-                            id={item.uid}
-                            birth_year={item.birth_year || ""}
-                            height={item.height || ""}
-                            hair_color={item.hair_color || ""}
-                            eye_color={item.eye_color || ""}
-                            gender={item.gender || ""}
-                          />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))
-              )}
-            </div>
+          {/* Grid layout instead of carousel */}
+          <div className="row">
+            {renderCards()}
           </div>
         </div>
       </section>

@@ -13,18 +13,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       infoPeople: [],
       infoPlanets: [],
       infoVehicles: [],
+      infoStarships: [],
+      infoSpecies: [],
+      infoFilms: [],
       favorites: [],
       index: null,
       globalChange: false,
     },
 
     actions: {
-      // Mostrar introducción
       intro: () => {
         setStore({ intro: false });
       },
 
-      // Función para obtener detalles de los elementos
       fetchDetails: async (items, detailUrl) => {
         if (!items || items.length === 0) return []; 
 
@@ -41,7 +42,6 @@ const getState = ({ getStore, getActions, setStore }) => {
         return await Promise.all(promises);
       },
 
-      // Función para obtener datos de una categoría específica
       fetchCategoryData: async (category) => {
         const storedData = localStorage.getItem(category);
 
@@ -79,24 +79,21 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      // Función para obtener datos
       getData: (element) => {
         const actions = getActions();
         actions.fetchCategoryData(element);
       },
 
-      // Agregar o actualizar favoritos
       addFavorite: (name) => {
         const store = getStore();
         setStore({ favorites: name });
       },
 
-      // Buscar y actualizar el estado
       search: (value, type) => {
         setStore({ [type]: value });
       },
 
-      // Establecer índice
+      
       setIndex: (index) => {
         setStore({ index });
       },
