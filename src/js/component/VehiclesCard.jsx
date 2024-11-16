@@ -3,9 +3,11 @@ import { Context } from "../store/appContext";
 import { Card } from "../component/Card.jsx";
 
 const VehiclesCard = ({ data }) => {
+ 
+  
+  const randomcars = [4,6,7,8,14,16,18,19,20,24]
   const { store } = useContext(Context);
   const infoVehicles = store.infoVehicles;
-   console.log("item", infoVehicles)
   const groupedData = [];
   for (let i = 0; i < data.length; i += 3) {
     groupedData.push(data.slice(i, i + 3));
@@ -45,6 +47,7 @@ const VehiclesCard = ({ data }) => {
                   
                     
                     <Card
+                      imgIdc={item.uid}
                       type="vehicles"
                       title={item.name}
                       id={item.uid}

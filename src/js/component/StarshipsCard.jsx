@@ -3,6 +3,10 @@ import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
 const StarshipsCard = ({ data }) => {
+ 
+  
+  let cc=0;
+  const nave = [5, 9, 10, 11, 12, 13, 15];
   const { store } = useContext(Context);
   const infoStarships = store.infoStarships;
   
@@ -46,7 +50,7 @@ const StarshipsCard = ({ data }) => {
                   <Card
                     type="starships"
                     title={item.name}
-                    id={item.uid}
+                    idStar={item.uid}
                     model={infoStarships[index]?.model}
                     manufacturer={infoStarships[index]?.manufacturer}
                     cost_in_credits={infoStarships[index]?.cost_in_credits}
@@ -64,7 +68,7 @@ const StarshipsCard = ({ data }) => {
               ))}
             </div>
           </div>
-        ))}
+      ))} { cc=cc+1}
       </div>
     </div>
   );

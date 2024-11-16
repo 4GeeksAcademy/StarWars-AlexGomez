@@ -5,7 +5,7 @@ import { Context } from "../store/appContext";
 const SpeciesCard = ({ data }) => {
   const { store } = useContext(Context);
   const infoSpecies = store.infoSpecies;
-  console.log("item", infoSpecies);
+
   
   const groupedData = [];
   for (let i = 0; i < data.length; i += 3) {
