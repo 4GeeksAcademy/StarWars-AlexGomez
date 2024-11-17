@@ -119,7 +119,7 @@ export const Card = (props) => {
                     )}
             </ul>
             
-            <Btn id={props.id} title={props.title} />
+            <Btn id={props.type === "starships"?props.idStar:props.type === "films"? props.imgIdF: props.id  }  type={props.type} url={imagen} title={props.title} />
           </div>
         </>
       )}

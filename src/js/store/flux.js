@@ -4,6 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       intro: true,
+      url:"",
       films: [],
       people: [],
       planets: [],
@@ -97,6 +98,9 @@ const getState = ({ getStore, getActions, setStore }) => {
       setIndex: (index) => {
         setStore({ index });
       },
+      setUrl: (url) => {
+        setStore({ url });
+      }
     },
   };
 };

@@ -80,7 +80,7 @@ const AsideMenu = () => {
     { icon: "bxs-magic-wand", text: "Species" },
     { icon: "bx-cloud-upload", text: "Starships" },
     { icon: "bxs-car", text: "Vehicles" },
-    { icon: "bx-cog", text: "Setting" },
+    { icon: "bx-cog", text: "Search" },
   ];
   useEffect(() => {
     const popup = document.getElementById("myPopup");

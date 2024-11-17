@@ -13,8 +13,8 @@ export const Home = () => {
 return(
 		<>
 			<div className="container">	
-				<Intro/>
-			
+				
+				{store.intro?<Intro/>:null}
 				{!store.intro?<AsideMenu/>:null}
 				{!store.intro?<><Cards/></>:null}
 			</div>

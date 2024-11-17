@@ -7,6 +7,7 @@ import "../styles/Responsive.css";
 import "../styles/Navbar.css";
 import "../styles/AsideMenu.css";
 import "../styles/Card.css";
+import "../styles/DescriptionView.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Layout from './layout.js'

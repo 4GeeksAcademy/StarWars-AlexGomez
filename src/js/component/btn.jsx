@@ -14,9 +14,11 @@ const btn = (props) => {
       };
   return (
     <div className="d-flex justify-content-around footer_card">
-    <Link to={{ pathname: `/Description/${props.id}` }} className="btn btn-outline-dark me-5 fw-bold my-2">
-      Learn more!
-    </Link>
+  <Link onClick={() => actions.setUrl(props.url)}
+  to={{ pathname: `/Description/${props.type}/${props.id}` }} 
+  className="btn btn-outline-dark me-5 fw-bold my-2">
+  Learn more!
+</Link>
     <button className="btnheart bgt mt-2" onClick={() => handleClick(props.title)}>
       {store.favorites.includes(props.title) ? (
         <>

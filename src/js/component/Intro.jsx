@@ -4,11 +4,11 @@ import { Context } from "..//store/appContext";
 const Intro = () => {
     const { store, actions } = useContext(Context);
     const [stars, setStars] = useState([]);
-
+actions.fetchDetails();
     function hideIntro() {
         const element = document.getElementById('intro');
         const imG = document.getElementById('img');
-        imG.style.display = 'none';
+        imG.style.display = 'none' || 'hidden';
         
         element.classList.add('hidden');
         setTimeout(() => {
