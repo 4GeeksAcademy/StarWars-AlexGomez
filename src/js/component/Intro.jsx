@@ -26,7 +26,7 @@ const Intro = () => {
       document.body.style.display = "flex";
       document.body.style.justifyContent = "center";
       document.body.style.alignItems = "center";
-      document.body.style.height = "100vh";
+      
       document.body.style.backgroundColor = "#000";
       document.body.style.margin = "0";
       document.body.style.scrollBehavior = "";

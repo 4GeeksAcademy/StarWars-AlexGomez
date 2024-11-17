@@ -16,7 +16,7 @@ const PeopleCards = ({ data }) => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="col-6 text-right">
+      <div className="col-sm-12 col-md-6 col-lg-12 text-right">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
           data-bs-target="#carouselExampleIndicators"

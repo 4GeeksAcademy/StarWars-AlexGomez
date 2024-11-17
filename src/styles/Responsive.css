@@ -1,20 +1,22 @@
 @media only screen and (max-width: 600px) {
   .navbar {
     top: 1.6rem;
+    width: 360px;
+    margin-bottom: 4px;
   }
   .cards_right {
-    padding: 0 20px;
-    margin: 0 auto;
-    width: 1025px;
-    position: relative;
-    bottom: 202px;
-    bottom: 1rem;
-    left: 16px !important;
-    width: max-content;
-  
+    position: fixed;
+    top: 70px !important;
+    left: 50px !important;
+    width: 316px !important;
 overflow: hidden;
   }
 
+  body{
+    max-width: 100px !important;
+    height: 700px;
+    overflow: hidden ;
+  }
   .p_intro {
     font-size: 0.5em;
     width: 70%;
@@ -30,7 +32,18 @@ overflow: hidden;
   body {
     height: 80%;
   }
-
+  .carousel-inner {
+    display: flex;
+    justify-content: center;
+    min-width: 38rem;
+    /* flex-direction: column; */
+}
+.carousel-inner .active {
+  position: relative;
+  right: 317.3px !important;
+  border: none;
+  padding: 0;
+}
   .logo {
     filter: drop-shadow(0 55px 55px rgba(255, 222, 32, 0.7));
     width: 210px !important;
@@ -54,23 +67,16 @@ overflow: hidden;
 }
 
 @media only screen and (max-height: 892px) {
+ 
   .cards_right {
-    padding: 20px;
-    margin: 0 auto;
-    width: 1025px;
-    position: relative;
-    bottom: 202px;
-    left: 169px;
-  }
-  .example {
-    background: orange;
+    position: fixed;
+    top: 70px !important;
+    left: 411px !important;
+  
+overflow: hidden;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .cards_right {
-    padding: 20px;
-    margin: 0 auto;
-    width: 1025px;
-  }
+
 }

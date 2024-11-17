@@ -67,11 +67,11 @@ export const Cards = () => {
   };
 
   return (
-    <div className="cards_right">
-      <section className="pt-5 pb-5">
+  
+      <section className="cards_right pt-5 pb-5">
         <div className="container">
           <div className="row">
-            <div className="col-12">
+            <div className="col-sm-12 col-md-6 col-lg-12">
               <h3 className="mb-3">
                 {type === "people" ? "Characters" : type}
               </h3>
@@ -80,6 +80,6 @@ export const Cards = () => {
           <div className="row">{renderCards()}</div>
         </div>
       </section>
-    </div>
+    
   );
 };
