@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import { Context } from "../store/appContext";
 
-
 const AsideMenu = () => {
   const sidebarRef = useRef(null);
   const sidebarLockBtnRef = useRef(null);

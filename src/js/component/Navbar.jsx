@@ -25,7 +25,6 @@ export const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-           
             <li className="nav-item dropdown">
               <button
                 className="btn dropdown-toggle"
@@ -51,15 +50,15 @@ export const Navbar = () => {
                       key={index}
                       className="d-flex justify-content-between dropdown-item"
                     >
-                      
-                        <Link 
-   to={{ pathname: `/Description/${store.datosNav[0]}/${store.datosNav[1]}` }} 
-  className="btn btn-outline-dark me-5 fw-bold my-2">
- {item}
-</Link>
-                      {/* <span>{item}</span> */}
-                     {/* { console.log(store.datosNav)} */}
-                      
+                      <Link
+                        to={{
+                          pathname: `/Description/${store.datosNav[0]}/${store.datosNav[1]}`,
+                        }}
+                        className="btn btn-outline-dark me-5 fw-bold my-2"
+                      >
+                        {item}
+                      </Link>
+                    
                       <i
                         className="fas fa-trash-alt"
                         onClick={() => {
@@ -77,8 +76,6 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
-
-        
       </div>
     </nav>
   );

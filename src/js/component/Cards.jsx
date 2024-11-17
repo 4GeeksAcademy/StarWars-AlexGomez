@@ -15,7 +15,15 @@ export const Cards = () => {
   const [type, setType] = useState("people");
 
   useEffect(() => {
-    const types = ["films", "people", "planets", "species", "starships", "vehicles","filter"];
+    const types = [
+      "films",
+      "people",
+      "planets",
+      "species",
+      "starships",
+      "vehicles",
+      "filter",
+    ];
     const newType = types[store.index] || "people";
     setType(newType);
   }, [store.index]);
@@ -60,18 +68,16 @@ export const Cards = () => {
 
   return (
     <div className="cards_right">
-
       <section className="pt-5 pb-5">
         <div className="container">
           <div className="row">
             <div className="col-12">
-              
-              <h3 className="mb-3">{type === "people" ? "Characters" : type}</h3>
+              <h3 className="mb-3">
+                {type === "people" ? "Characters" : type}
+              </h3>
             </div>
           </div>
-          <div className="row">
-            {renderCards()}
-          </div>
+          <div className="row">{renderCards()}</div>
         </div>
       </section>
     </div>

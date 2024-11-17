@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
@@ -11,9 +11,11 @@ const PlanetsCard = ({ data }) => {
   }
 
   return (
-    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-      
-     
+    <div
+      id="carouselExampleIndicators"
+      className="carousel slide"
+      data-bs-ride="carousel"
+    >
       <div className="col-6 text-right">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
@@ -33,12 +35,16 @@ const PlanetsCard = ({ data }) => {
 
       <div className="carousel-inner">
         {groupedData.map((group, idx) => (
-          <div key={idx} className={`carousel-item ${idx === 0 ? "active" : ""}`}>
+          <div
+            key={idx}
+            className={`carousel-item ${idx === 0 ? "active" : ""}`}
+          >
             <div className="row">
               {group.map((item, index) => (
                 <div
                   key={index}
-                  className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container">
+                  className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
+                >
                   <Card
                     type="planets"
                     title={item.name}
@@ -48,13 +54,14 @@ const PlanetsCard = ({ data }) => {
                     terrain={infoPlanets[index]?.terrain}
                     diameter={infoPlanets[index]?.diameter}
                   />
-
                 </div>
               ))}
             </div>
           </div>
         ))}
       </div>
+
+      
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React,{useContext} from "react";
+import React, { useContext } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
@@ -6,15 +6,17 @@ const SpeciesCard = ({ data }) => {
   const { store } = useContext(Context);
   const infoSpecies = store.infoSpecies;
 
-  
   const groupedData = [];
   for (let i = 0; i < data.length; i += 3) {
     groupedData.push(data.slice(i, i + 3));
   }
 
   return (
-    <div id="carouselExampleIndicators" className="carousel slide" data-bs-ride="carousel">
-      
+    <div
+      id="carouselExampleIndicators"
+      className="carousel slide"
+      data-bs-ride="carousel"
+    >
       <div className="col-6 text-right">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
@@ -34,12 +36,16 @@ const SpeciesCard = ({ data }) => {
 
       <div className="carousel-inner">
         {groupedData.map((group, idx) => (
-          <div key={idx} className={`carousel-item ${idx === 0 ? "active" : ""}`}>
+          <div
+            key={idx}
+            className={`carousel-item ${idx === 0 ? "active" : ""}`}
+          >
             <div className="row">
               {group.map((item, index) => (
                 <div
                   key={index}
-                  className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container" >
+                  className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
+                >
                   <Card
                     type="species"
                     title={item.name}
