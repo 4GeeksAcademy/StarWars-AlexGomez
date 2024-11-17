@@ -16,7 +16,7 @@ const SearchResults = () => {
     }
     return (
       <div>
-        <h3>{type.charAt(0).toUpperCase() + type.slice(1)}</h3>
+        <h3 className="text-danger">{type.charAt(0).toUpperCase() + type.slice(1)}</h3>
         <ul>
           {items.map((item, index) => (
             <li key={index}>

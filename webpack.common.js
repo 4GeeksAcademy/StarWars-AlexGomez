@@ -44,7 +44,7 @@ module.exports = {
         favicon: '4geeks.ico',
         template: 'template.html'
     }),
-    new Dotenv({ safe: true, systemvars: true,path: './.env', // Path to the .env file
+    new Dotenv({ safe: true, systemvars: true,path: './.env.example', // Path to the .env file
       defaults: true, // Loads a .env.defaults file if available for default values
       systemvars: true, })
   ]

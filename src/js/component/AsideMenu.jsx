@@ -95,9 +95,9 @@ console.log(window.innerWidth);
         Hello, options there
       </div>
 
-      <nav ref={sidebarRef} className="sidebar locked">
+      <nav ref={sidebarRef} className="sidebar locked  flex-column">
         <div className="logo_items flex">
-          <span className="logo_name">INFORMATIONS</span>
+          <span className="logo_name ">INFORMATIONS</span>
           <i
             className="bx bx-lock-alt"
             id="lock-icon"
@@ -105,7 +105,7 @@ console.log(window.innerWidth);
             title="Unlock Sidebar"
           ></i>
           <i
-            className="bx bx-x"
+            className="text-black bx bx-x"
             id="sidebar-close"
             ref={sidebarCloseBtnRef}
           ></i>

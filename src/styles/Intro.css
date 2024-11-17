@@ -151,3 +151,9 @@
     overflow: hidden;
     border: 1px solid red;
   }
+
+  .carousel-inner {
+    position: relative;
+    width: 78% !important;
+  
+  }

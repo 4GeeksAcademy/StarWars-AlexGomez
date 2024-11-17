@@ -228,9 +228,10 @@ li {
   height: 60vh;
 }
 
-.search-results h3 {
-  color: #333;
+.search-results  .search-results {
+  color: #333 !important;
   font-size: 1.5rem;
+  text-align: start !important;
   margin-bottom: 10px;
 }
 
