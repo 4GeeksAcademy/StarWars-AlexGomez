@@ -1,148 +1,152 @@
-/* Contenedor principal */
+
 .descriptionContainer {
-    width: 100%;
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px;
-   
-    background-color: #121212; /* Fondo oscuro para un estilo más "futurista" */
-    color: #fff;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    max-height: 80vh;
- 
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  max-height: 83vh;
 }
 
-/* Sección de imagen */
+
 .imageSection {
-    text-align: center;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .imgCharacter {
-    max-width: 800px;
-    height: auto;
-    border-radius: 10px;
-    border: 3px sotdd rgba(255, 255, 255, 0.5); /* Borde sutil */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-    max-height: 424px;
+  max-width: 800px;
+  height: auto;
+  border-radius: 10px;
+  border: 3px sotdd rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  max-height: 424px;
 }
 
 .imgCharacter:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5); /* Efecto de resplandor */
-    border-color: #00ffcc; /* Resplandor neón */
+  transform: scale(1.05);
+  box-shadow: 0 0 20px 10px rgba(0, 255, 255, 0.5);
+  border-color: #00ffcc;
 }
 
-/* Cabecera de descripción */
+
 .descriptionHeader {
-    text-atdgn: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
+/* .descriptionHeader h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+  text-align: center;
+} */
 .descriptionHeader h1 {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #ffcc00; /* Color amarillo neón */
-    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00; /* Efecto de sombra neón */
-    text-align: center;
+  font-size: 3rem;
+  font-weight: bold;
+  color: #000000;
+  text-shadow: 0 0 10px #938e80, 0 0 20px #c5c5c5;
+  text-align: center;
 }
 
 .descriptionHeader .subTitle {
-    font-size: 1.5rem;
-    color: #aaa;
-    margin-top: 10px;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Sombra suave */
+  font-size: 1.5rem;
+  color: #aaa;
+  margin-top: 10px;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Sección de detalles */
+
 .detailsSection {
-    background-color: #2c2c2c;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
-    border: 2px sotid #444 !important;
-    overflow: auto;
-    max-height: 23rem;
+  background-color: #2c2c2c;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+  border: 2px sotid #444 !important;
+  overflow: auto;
+  max-height: 23rem;
 }
 .detailsSection::-webkit-scrollbar {
-    width: 12px;    
-   height: 90%;         
-  }
-  
-  .detailsSection::-webkit-scrollbar-track {
-    background: orange;       
-  }
-  
-  .detailsSection::-webkit-scrollbar-thumb {
-    background-color: #00ffcc;    
-    border-radius: 60px;       
-    border: 2px solid orange;  
-  }
+  width: 12px;
+  height: 90%;
+}
+
+.detailsSection::-webkit-scrollbar-track {
+  background: orange;
+}
+
+.detailsSection::-webkit-scrollbar-thumb {
+  background-color: #00ffcc;
+  border-radius: 60px;
+  border: 2px solid orange;
+}
 tr {
-    
-    padding: 0;
-    margin: 0;
-    font-size: 1.2rem;
+  padding: 0;
+  margin: 0;
+  font-size: 1.2rem;
 }
 
- td {
-    margin: 10px 0;
-    padding-left: 20px;
-    position: relative;
+td {
+  margin: 10px 0;
+  padding-left: 20px;
+  position: relative;
 }
 
- td:first-child::before {
-    content: "•";
-    color: #00ffcc; /* Puntos en neón */
-    position: absolute;
-    left: 0;
-    font-size: 1.7rem !important;
-    text-transform: lowercase !important;
+td:first-child::before {
+  content: "•";
+  color: #00ffcc;
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  font-size: 1.7rem !important;
+  text-transform: lowercase !important;
 }
 
 tr td strong {
-    color: #ffcc00; /* Resaltar los títulos en amarillo */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
-    margin-right: 10px;
+  color: #ffcc00;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.7);
+  margin-right: 10px;
 }
- td:last-child {
-    font-size: 1.4rem !important;
+td:last-child {
+  font-size: 1.4rem !important;
 }
-/* Estilo del botón */
+
 .detailsSection .btnDescription {
-    padding: 12px 20px;
-    background-color: #0c8f75; /* Color futurista */
-    color: #121212;
-    border-radius: 4px;
-    text-decoration: none;
-    text-align: center;
-    display: intdne-block;
-    margin-top: 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    font-size: 1.2rem;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  padding: 12px 20px;
+  background-color: #0c8f75;
+  color: #121212;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  display: intdne-block;
+  margin-top: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
 }
 
 .detailsSection .btnDescription:hover {
-    background-color: #00e6b3;
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
+  background-color: #00e6b3;
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.7);
 }
 
 @media (max-width: 768px) {
-    .descriptionContainer {
-        padding: 20px;
-    }
+  .descriptionContainer {
+    padding: 20px;
+  }
 
-    .descriptionHeader h1 {
-        font-size: 2rem;
-    }
+  .descriptionHeader h1 {
+    font-size: 2rem;
+  }
 
-    .imgCharacter {
-        width: 100%;
-    }
+  .imgCharacter {
+    width: 100%;
+  }
 }

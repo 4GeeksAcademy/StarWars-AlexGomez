@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
-import Btn from "../component/btn.jsx";
 
 export const Description = () => {
   const { store } = useContext(Context);
@@ -20,7 +19,6 @@ export const Description = () => {
         switch (type) {
           case "people":
             info = store.infoPeople?.[parseInt(id - 1)];
-
             break;
           case "planets":
             info = store.infoPlanets?.[parseInt(id - 1)];
@@ -53,7 +51,7 @@ export const Description = () => {
   if (!itemDetails || !infoDetails) return <div>Loading...</div>;
 
   return (
-    <div className="descriptionContainer">
+    <div className="descriptionContainer hero flex-column">
       <div className="imageSection">
         <img
           src={store.url}
@@ -330,7 +328,6 @@ export const Description = () => {
             )}
           </tbody>
         </table>
-        {/* id={props.id || props.uid }  type={props.type} url={imagen} title={props.title} */}
       <button className="btnDescription" onClick={() => alert("NO AVAILABLE FOR THE MOMENT!!!")}>Watch de Video of {itemDetails.name}</button>
       </div>
     </div>

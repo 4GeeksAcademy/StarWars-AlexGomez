@@ -5,7 +5,6 @@
     background-color: white;
   }
   
-  /* Set the animation, color, size and hide the text */
   .intro {
       position: absolute;
       top: 30%;
@@ -43,7 +42,6 @@
       }
   }
   
-  /* Set the animation & hide the logoOpening */
   .logoOpening {    
       position: absolute;
       top: 20%;
@@ -58,7 +56,6 @@
       width: inherit;
   }
   
-  /* Scale the logoOpening down and maintain it centered */
   @keyframes logoOpening {
       0% {
           width: 18em;        
@@ -80,7 +77,6 @@
     color: #FFFF82;
   }
   
-  /* Set the font, lean the board, position it */
   #board {
     font-family: 'Netron', sans-serif;
     transform: perspective(300px) rotateX(15deg);
@@ -106,7 +102,6 @@
     top: 0;
   }
   
-  /* Set the scrolling animation and position it */
   #content {
     animation: scroll 90s linear 11.5s;
     position: absolute;
@@ -133,7 +128,7 @@
   
   .star {
     animation: starAnimation linear infinite;
-    animation-duration: calc(2s + (var(--speed) * 2s)); /* Añadir variedad */
+    animation-duration: calc(2s + (var(--speed) * 2s)); 
   }
   .logoOpening svg path {
     filter: drop-shadow(0 0 5px #ffe81f);
@@ -153,7 +148,6 @@
 
   .contenedor{
     position: relative;
-  
     overflow: hidden;
     border: 1px solid red;
   }

@@ -7,9 +7,7 @@ import injectContext from "./store/appContext";
 import { Navbar } from "./component/Navbar.jsx";
 import { Context } from "./store/appContext.js";
 
-
 const Layout = () => {
-	
 	const { store, actions } = useContext(Context);
 	const basename = process.env.BASENAME || "";
 
@@ -24,7 +22,6 @@ const Layout = () => {
 							<Route path="/Description/:type/:id" element={<Description />} />
 							<Route path="*" element={<h1>Not found!</h1>} />
 						</Routes>
-	
 				</ScrollToTop>
 			</BrowserRouter>
 		</div>

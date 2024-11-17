@@ -6,6 +6,7 @@ import FilmsCards from "./FilmsCards.jsx";
 import StarshipsCards from "./StarshipsCard.jsx";
 import VehiclesCards from "./VehiclesCard.jsx";
 import SpeciesCard from "./SpeciesCard.jsx";
+import Filter from "./Filter.jsx";
 
 export const Cards = () => {
   const { store } = useContext(Context);
@@ -14,7 +15,7 @@ export const Cards = () => {
   const [type, setType] = useState("people");
 
   useEffect(() => {
-    const types = ["films", "people", "planets", "species", "starships", "vehicles"];
+    const types = ["films", "people", "planets", "species", "starships", "vehicles","filter"];
     const newType = types[store.index] || "people";
     setType(newType);
   }, [store.index]);
@@ -50,6 +51,8 @@ export const Cards = () => {
         return <StarshipsCards data={cardsData} />;
       case "vehicles":
         return <VehiclesCards data={cardsData} />;
+      case "filter":
+        return <Filter />;
       default:
         return null;
     }
@@ -57,10 +60,12 @@ export const Cards = () => {
 
   return (
     <div className="cards_right">
+
       <section className="pt-5 pb-5">
         <div className="container">
           <div className="row">
             <div className="col-12">
+              
               <h3 className="mb-3">{type === "people" ? "Characters" : type}</h3>
             </div>
           </div>

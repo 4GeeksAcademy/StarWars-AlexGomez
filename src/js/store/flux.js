@@ -36,7 +36,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             const data = await response.json();
             return data.result.properties;
           } catch (error) {
-            console.error("Error fetching details:", error);
+            console.error("Error fetching details (line 39):", error);
             return null;
           }
         });
@@ -66,7 +66,7 @@ const getState = ({ getStore, getActions, setStore }) => {
             results = category === "films" ? jsonData.result : jsonData.results || []; 
             details = await getActions().fetchDetails(results, `${baseUrl}/${category}`);
           } catch (error) {
-            console.error('La respuesta no es JSON:', data);
+        
             return;
           }
 
@@ -90,11 +90,33 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ favorites: name });
       },
 
-      search: (value, type) => {
-        setStore({ [type]: value });
-      },
-
+      search: (value) => {
       
+      
+        if (typeof value !== 'string') {
+          console.error('Search value must be a string');
+          return; 
+        }
+      
+
+        const types = ['people', 'vehicles', 'species', 'planets', 'starships', 'films'];
+      
+        const store = getStore();
+        const filtered = types.reduce((acc, type) => {
+          const data = store[type] || []; 
+          acc[`filtered${type.charAt(0).toUpperCase() + type.slice(1)}`] = data.filter(item => {
+            
+            return item.name && typeof item.name === 'string' && item.name.toLowerCase().includes(value.toLowerCase());
+          });
+          return acc;
+        }, {});
+    
+        setStore(filtered);
+      }
+      
+      ,
+      
+  
       setIndex: (index) => {
         setStore({ index });
       },

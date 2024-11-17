@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
+
 import { Context } from "../store/appContext";
 import logo from "../../img/logo.png";
+
 
 
 const AsideMenu = () => {
@@ -80,7 +82,7 @@ const AsideMenu = () => {
     { icon: "bxs-magic-wand", text: "Species" },
     { icon: "bx-cloud-upload", text: "Starships" },
     { icon: "bxs-car", text: "Vehicles" },
-    { icon: "bx-cog", text: "Search" },
+    { icon: "bx-search", text: "Search" },
   ];
   useEffect(() => {
     const popup = document.getElementById("myPopup");
@@ -115,19 +117,28 @@ const AsideMenu = () => {
             {menuItems.map((item, index) => (
               <ul key={index} className="menu_item">
                 <li className="item">
+
                   <a
                     href="#"
-                    onClick={() => { toggleClass(index); if (item.actionText) actions.getData(item.actionText.toLowerCase());else actions.getData(item.text.toLowerCase());}}
+                    onClick={() => { 
+                      toggleClass(index);
+                       if (item.actionText) 
+                        actions.getData(item.actionText.toLowerCase());
+                       else 
+                        actions.getData(item.text.toLowerCase());
+                      }}
                     className={
                       activeIndex === index ? "active link flex" : "link flex"
                     }
                   >
+                    
                     <i className={`bx ${item.icon}`}></i>
                     <span>{item.text}</span>
                   </a>
                 </li>
               </ul>
             ))}
+           
           </div>
         </div>
       </nav>
