@@ -1,8 +1,5 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
-
 import { Context } from "../store/appContext";
-import logo from "../../img/logo.png";
-
 
 
 const AsideMenu = () => {
@@ -10,12 +7,12 @@ const AsideMenu = () => {
   const sidebarLockBtnRef = useRef(null);
   const sidebarOpenBtnRef = useRef(null);
   const sidebarCloseBtnRef = useRef(null);
-  const { store, actions } = useContext(Context);
+  const { actions } = useContext(Context);
   const [activeIndex, setActiveIndex] = useState(null);
 
   const toggleClass = (index) => {
     setActiveIndex(index);
-     actions.setIndex(index);
+    actions.setIndex(index);
   };
 
   const toggleLock = () => {
@@ -92,13 +89,14 @@ const AsideMenu = () => {
     }, 2000);
   }, []);
 
-
   return (
-    <div className="col-3 col-lg-3 col-md-3"><div id="myPopup" 	 className="popup">Hello, options there</div>
-    
+    <div className="col-3 col-lg-3 col-md-3">
+      <div id="myPopup" className="popup">
+        Hello, options there
+      </div>
+
       <nav ref={sidebarRef} className="sidebar locked">
         <div className="logo_items flex">
-        
           <span className="logo_name">INFORMATIONS</span>
           <i
             className="bx bx-lock-alt"
@@ -117,34 +115,34 @@ const AsideMenu = () => {
             {menuItems.map((item, index) => (
               <ul key={index} className="menu_item">
                 <li className="item">
-
                   <a
                     href="#"
-                    onClick={() => { 
+                    onClick={() => {
                       toggleClass(index);
-                       if (item.actionText) 
+                      if (item.actionText)
                         actions.getData(item.actionText.toLowerCase());
-                       else 
-                        actions.getData(item.text.toLowerCase());
-                      }}
+                      else actions.getData(item.text.toLowerCase());
+                    }}
                     className={
                       activeIndex === index ? "active link flex" : "link flex"
                     }
                   >
-                    
                     <i className={`bx ${item.icon}`}></i>
                     <span>{item.text}</span>
                   </a>
                 </li>
               </ul>
             ))}
-           
           </div>
         </div>
       </nav>
 
       <nav className="navbar flex">
-        <i className="bx bx-menu-alt-left" id="sidebar-open" ref={sidebarOpenBtnRef}></i>
+        <i
+          className="bx bx-menu-alt-left"
+          id="sidebar-open"
+          ref={sidebarOpenBtnRef}
+        ></i>
       </nav>
     </div>
   );

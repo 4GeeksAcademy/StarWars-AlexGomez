@@ -19,10 +19,14 @@ const getState = ({ getStore, getActions, setStore }) => {
       infoFilms: [],
       favorites: [],
       index: null,
-      globalChange: false,
+      datosNav: []
     },
 
     actions: {
+      SetdataNav: async (typo,id,url) => {
+            setStore({datosNav: [typo,id,url]});
+      }
+      ,
       intro: () => {
         setStore({ intro: false });
       },
@@ -75,7 +79,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 
           localStorage.setItem(category, JSON.stringify({ results, details }));
         } catch (error) {
-          console.error(`Error al obtener los datos de ${category}:`, error);
+          console.error(`Error al obtener los datos de ${category} linea 78:`, error);
           setStore({ [category]: [] });
         }
       },
@@ -97,26 +101,20 @@ const getState = ({ getStore, getActions, setStore }) => {
           console.error('Search value must be a string');
           return; 
         }
-      
-
         const types = ['people', 'vehicles', 'species', 'planets', 'starships', 'films'];
-      
         const store = getStore();
+
         const filtered = types.reduce((acc, type) => {
           const data = store[type] || []; 
-          acc[`filtered${type.charAt(0).toUpperCase() + type.slice(1)}`] = data.filter(item => {
-            
+          acc[`filtered${type.charAt(0).toUpperCase() + type.slice(1)}`] = data.filter(item => { 
             return item.name && typeof item.name === 'string' && item.name.toLowerCase().includes(value.toLowerCase());
           });
           return acc;
         }, {});
     
         setStore(filtered);
-      }
+      },
       
-      ,
-      
-  
       setIndex: (index) => {
         setStore({ index });
       },

@@ -69,7 +69,6 @@ export const Cards = () => {
               <h3 className="mb-3">{type === "people" ? "Characters" : type}</h3>
             </div>
           </div>
-          {/* Grid layout instead of carousel */}
           <div className="row">
             {renderCards()}
           </div>

@@ -11,6 +11,8 @@ const btn = (props) => {
           ? store.favorites.filter((favorite) => favorite !== name)
           : [...store.favorites, name];
         actions.addFavorite(updatedFavorites);
+        actions.setUrl(props.url);
+        actions.SetdataNav(props.type, props.id,props.url);
       };
   return (
     <div className="d-flex justify-content-around footer_card">
@@ -20,6 +22,7 @@ const btn = (props) => {
   Learn more!
 </Link>
     <button className="btnheart bgt mt-2" onClick={() => handleClick(props.title)}>
+     
       {store.favorites.includes(props.title) ? (
         <>
           <img className="likeIcon" src={cohete} alt="Liked" />

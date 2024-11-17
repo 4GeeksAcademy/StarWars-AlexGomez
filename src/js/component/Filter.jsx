@@ -1,17 +1,14 @@
-import React, { useState, useContext } from 'react';
-import { Context } from '../store/appContext';
-import SearchResults from './SearchResults.jsx';
-
+import React, { useState, useContext } from "react";
+import { Context } from "../store/appContext";
+import SearchResults from "./SearchResults.jsx";
 
 const Filter = () => {
-    
   const { actions } = useContext(Context);
-  const [searchInfo, setSearchInfo] = useState('');
-
+  const [searchInfo, setSearchInfo] = useState("");
   const handleChange = (e) => {
     const { value } = e.target;
     setSearchInfo(value);
-    actions.search(value); 
+    actions.search(value);
   };
 
   return (
@@ -22,10 +19,9 @@ const Filter = () => {
           className="search-input"
           placeholder="Search..."
           value={searchInfo}
-          onChange={handleChange} 
+          onChange={handleChange}
         />
       </div>
-
       <SearchResults />
     </div>
   );

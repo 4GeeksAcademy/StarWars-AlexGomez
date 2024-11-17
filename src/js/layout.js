@@ -20,7 +20,7 @@ const Layout = () => {
 							<Route path="/" element={<Home />} />
 							<Route path="/home" element={<Home />} />
 							<Route path="/Description/:type/:id" element={<Description />} />
-							<Route path="*" element={<h1>Not found!</h1>} />
+							<Route path="*" element={<Home />} />
 						</Routes>
 				</ScrollToTop>
 			</BrowserRouter>

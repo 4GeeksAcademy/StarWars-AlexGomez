@@ -104,7 +104,6 @@ actions.fetchDetails();
                     <p className='p_intro'>It is a period of civil war. Luke Skywalker, a young farmer, joins Princess Leia, Han Solo, and others to fight the evil Galactic Empire...</p>
                 </div>
             </div>
-
             {stars.map((star, index) => (
                 <div
                     key={index}

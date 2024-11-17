@@ -25,11 +25,7 @@ export const Navbar = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
-            {store.globalChange ? (
-              <li className="nav-item mt-2 pt-2">
-                <Search />
-              </li>
-            ) : null}
+           
             <li className="nav-item dropdown">
               <button
                 className="btn dropdown-toggle"
@@ -55,12 +51,22 @@ export const Navbar = () => {
                       key={index}
                       className="d-flex justify-content-between dropdown-item"
                     >
-                      <span>{item}</span>
+                      
+                        <Link 
+   to={{ pathname: `/Description/${store.datosNav[0]}/${store.datosNav[1]}` }} 
+  className="btn btn-outline-dark me-5 fw-bold my-2">
+ {item}
+</Link>
+                      {/* <span>{item}</span> */}
+                     {/* { console.log(store.datosNav)} */}
+                      
                       <i
                         className="fas fa-trash-alt"
                         onClick={() => {
                           actions.addFavorite(
-                            store.favorites.filter((favorite) => favorite !== item)
+                            store.favorites.filter(
+                              (favorite) => favorite !== item
+                            )
                           );
                         }}
                       ></i>
@@ -71,6 +77,8 @@ export const Navbar = () => {
             </li>
           </ul>
         </div>
+
+        
       </div>
     </nav>
   );
