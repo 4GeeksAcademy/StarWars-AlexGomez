@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Context } from "../store/appContext";
 import { Card } from "../component/Card.jsx";
 
 const PeopleCards = ({ data }) => {
   const { store } = useContext(Context);
   const infoPeople = store.infoPeople;
+  const [width, setWidth] = useState(window.innerWidth);
   const groupedData = [];
   for (let i = 0; i < data.length; i += 3) {
     groupedData.push(data.slice(i, i + 3));
@@ -32,8 +33,8 @@ const PeopleCards = ({ data }) => {
           <i className="fa fa-arrow-right"></i>
         </button>
       </div>
-      {  window.innerWidth < 800 ?
-      <div className="carousel-inner">
+      {  width < 800 ?
+      <div style={{width:{width}}} className="carousel-inner">
         {data.map((item, index) => (
           <div
             key={item.uid}

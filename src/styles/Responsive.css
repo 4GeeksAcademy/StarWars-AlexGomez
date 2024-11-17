@@ -4,13 +4,7 @@
     width: 360px;
     margin-bottom: 4px;
   }
-  .cards_right {
-    position: fixed;
-    top: 70px !important;
-    left: 50px !important;
-    width: 316px !important;
-overflow: hidden;
-  }
+  
 
   body{
     max-width: 100px !important;
@@ -70,8 +64,8 @@ overflow: hidden;
  
   .cards_right {
     position: fixed;
-    top: 70px !important;
-    left: 411px !important;
+    top: 32px !important;
+
   
 overflow: hidden;
   }

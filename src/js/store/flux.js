@@ -19,7 +19,8 @@ const getState = ({ getStore, getActions, setStore }) => {
       infoFilms: [],
       favorites: [],
       index: null,
-      datosNav: []
+      datosNav: [],
+      with:window.innerWidth,
     },
 
     actions: {
