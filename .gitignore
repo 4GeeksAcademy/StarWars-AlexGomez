@@ -66,3 +66,5 @@ public/
 !.env
 .now
 .vercel
+!.env
+!.env.defaults

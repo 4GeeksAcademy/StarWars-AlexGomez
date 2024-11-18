@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
 const StarshipsCard = ({ data }) => {
   const { store } = useContext(Context);
   const infoStarships = store.infoStarships;
+  const [width, setWidth] = useState(window.innerWidth);
 
   const groupedData = [];
   for (let i = 0; i < data.length; i += 3) {
@@ -17,7 +18,7 @@ const StarshipsCard = ({ data }) => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="col-6 text-right">
+      <div className="col-sm-12 col-md-6 col-lg-12 text-right">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
           data-bs-target="#carouselExampleIndicators"
@@ -33,7 +34,37 @@ const StarshipsCard = ({ data }) => {
           <i className="fa fa-arrow-right"></i>
         </button>
       </div>
-
+      {width < 800 ? (
+        <div style={{ width: { width } }} className="carousel-inner">
+          {data.map((item, index) => (
+            <div
+              key={item.uid}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+            >
+               <Card
+                    type="starships"
+                    title={item.name}
+                    idStar={item.uid}
+                    model={infoStarships[index]?.model}
+                    manufacturer={infoStarships[index]?.manufacturer}
+                    cost_in_credits={infoStarships[index]?.cost_in_credits}
+                    length={infoStarships[index]?.length}
+                    max_atmosphering_speed={
+                      infoStarships[index]?.max_atmosphering_speed
+                    }
+                    crew={infoStarships[index]?.crew}
+                    passengers={infoStarships[index]?.passengers}
+                    cargo_capacity={infoStarships[index]?.cargo_capacity}
+                    consumables={infoStarships[index]?.consumables}
+                    hyperdrive_rating={infoStarships[index]?.hyperdrive_rating}
+                    MGLT={infoStarships[index]?.MGLT}
+                    starship_class={infoStarships[index]?.starship_class}
+                  />
+             
+            </div>
+          ))}
+        </div>
+      ) : (
       <div className="carousel-inner">
         {groupedData.map((group, idx) => (
           <div
@@ -71,6 +102,7 @@ const StarshipsCard = ({ data }) => {
           </div>
         ))}{" "}
       </div>
+      )}
     </div>
   );
 };

@@ -34,7 +34,9 @@ const PeopleCards = ({ data }) => {
         </button>
       </div>
       {  width < 800 ?
-      <div style={{width:{width}}} className="carousel-inner">
+      <div style={{width:{width}}} 
+      
+      className="carousel-inner">
         {data.map((item, index) => (
           <div
             key={item.uid}

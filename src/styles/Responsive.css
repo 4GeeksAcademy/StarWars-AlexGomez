@@ -1,61 +1,67 @@
+/* Regla para dispositivos con pantalla de hasta 600px */
 @media only screen and (max-width: 600px) {
   .navbar {
     top: 1.6rem;
     width: 360px;
     margin-bottom: 4px;
   }
-  .logo_name{
+
+  .logo_name {
     font-size: 2.0em !important;
     text-align: center;
     margin: 0 auto;
   }
-.sidebar{
-  position: fixed;
-  top: 0px !important;
-  left: 0;
-  width: 351px;
-  background: #ecece6bd !important;
-  padding: 56px 10px !important;
-  
-}
-  body{
+
+  .sidebar {
+    position: fixed;
+    top: 0 !important;
+    left: 0;
+    width: 351px;
+    background: #ecece6bd !important;
+    padding: 56px 10px !important;
+  }
+
+  body {
     max-width: 100px !important;
     height: 700px;
-    overflow: hidden ;
+    overflow: hidden;
   }
+
   .p_intro {
     font-size: 0.5em;
     width: 70%;
     margin: 0 auto;
   }
+
   .intro {
     font-size: 170%;
   }
+
   #board {
     font-family: "Netron", sans-serif;
     font-size: 200%;
   }
-  body {
-    height: 80%;
-  }
+
   .carousel-inner {
     display: flex;
     justify-content: center;
     min-width: 38rem;
-    /* flex-direction: column; */
-}
-.carousel-inner .active {
-  position: relative;
-  right: 317.3px !important;
-  border: none;
-  padding: 0;
-}
+  }
+
+  .carousel-inner .active {
+    position: relative;
+    right: 317.3px !important;
+    border: none;
+    padding: 0;
+  }
+
   .logo {
     filter: drop-shadow(0 55px 55px rgba(255, 222, 32, 0.7));
     width: 210px !important;
     height: 131px !important;
     color: white !important;
   }
+
   .btn .fs-2 {
     color: white !important;
   }
@@ -66,22 +72,36 @@
   }
 }
 
+/* Regla para dispositivos con pantalla más grande */
 @media only screen and (min-width: 600px) {
+  /* Puedes agregar reglas específicas aquí si las necesitas */
 }
 
 @media only screen and (min-width: 768px) {
+  /* Puedes agregar reglas específicas aquí si las necesitas */
 }
 
 @media only screen and (max-height: 892px) {
- 
-  .cards_right {
+  /* .cards_right {
     position: fixed;
-    top: 81px !important;
-    left: 67px;
+    top: 94px !important;
+    left: 405px;
     overflow: hidden;
-  }
+  } */
 }
 
+/* Regla para dispositivos con pantallas grandes (min-width: 1200px) */
 @media only screen and (min-width: 1200px) {
-
+  .carousel-inner {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    min-width: 936px;
+  }
+  /* .cards_right {
+    position: fixed;
+    top: 124px !important;
+    left: 445px;
+    
+  } */
 }

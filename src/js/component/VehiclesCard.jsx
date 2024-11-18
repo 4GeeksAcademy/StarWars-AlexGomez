@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext,useState } from "react";
 import { Context } from "../store/appContext";
 import { Card } from "../component/Card.jsx";
 
 const VehiclesCard = ({ data }) => {
   const randomcars = [4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
   const { store } = useContext(Context);
+  const [width, setWidth] = useState(window.innerWidth);
   const infoVehicles = store.infoVehicles;
   const groupedData = [];
   for (let i = 0; i < data.length; i += 3) {
@@ -17,7 +18,7 @@ const VehiclesCard = ({ data }) => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="col-6 text-right">
+      <div className="col-sm-12 col-md-6 col-lg-12 text-right">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
           data-bs-target="#carouselExampleIndicators"
@@ -33,7 +34,31 @@ const VehiclesCard = ({ data }) => {
           <i className="fa fa-arrow-right"></i>
         </button>
       </div>
-
+      {width < 800 ? (
+        <div style={{ width: { width } }} className="carousel-inner">
+          {data.map((item, index) => (
+            <div
+              key={item.uid}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+            >
+              <Card
+                type="vehicles"
+                title={item.name}
+                id={item.uid}
+                model={infoVehicles[index]?.model}
+                vehicle_class={infoVehicles[index]?.vehicle_class}
+                manufacturer={infoVehicles[index]?.manufacturer}
+                cost_in_credits={infoVehicles[index]?.cost_in_credits}
+                length={infoVehicles[index]?.length}
+                crew={infoVehicles[index]?.crew}
+                passengers={infoVehicles[index]?.passengers}
+                cargo_capacity={infoVehicles[index]?.cargo_capacity}
+              />
+            </div>
+          ))}
+        </div>
+      ) : (
+        
       <div className="carousel-inner">
         {groupedData.map((group, idx) => (
           <div
@@ -66,6 +91,7 @@ const VehiclesCard = ({ data }) => {
           </div>
         ))}
       </div>
+      )}
     </div>
   );
 };
