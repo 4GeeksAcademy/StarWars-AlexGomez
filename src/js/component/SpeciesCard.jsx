@@ -41,17 +41,18 @@ const SpeciesCard = ({ data }) => {
                 key={item.uid}
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
               >
-                <Card
-                  type="species"
-                  title={item.name}
-                  classification={infoSpecies[index]?.classification}
-                  designation={infoSpecies[index]?.designation}
-                  average_height={infoSpecies[index]?.average_height}
-                  average_lifespan={infoSpecies[index]?.average_lifespan}
-                  eye_colors={infoSpecies[index]?.eye_colors}
-                  hair_colors={infoSpecies[index]?.hair_colors}
-                  language={infoSpecies[index]?.language}
-                />
+           <Card
+                    type="species"
+                    title={item.name}
+                    id={item.uid}
+                    classification={infoSpecies[index]?.classification}
+                    designation={infoSpecies[index]?.designation}
+                    average_height={infoSpecies[index]?.average_height}
+                    average_lifespan={infoSpecies[index]?.average_lifespan}
+                    eye_colors={infoSpecies[index]?.eye_colors}
+                    hair_colors={infoSpecies[index]?.hair_colors}
+                    language={infoSpecies[index]?.language}
+                  />
               </div>
             ))}
           </div>
@@ -68,17 +69,18 @@ const SpeciesCard = ({ data }) => {
                       key={index}
                       className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
                     >
-                      <Card
-                        type="species"
-                        title={item.name}
-                        classification={infoSpecies[index]?.classification}
-                        designation={infoSpecies[index]?.designation}
-                        average_height={infoSpecies[index]?.average_height}
-                        average_lifespan={infoSpecies[index]?.average_lifespan}
-                        eye_colors={infoSpecies[index]?.eye_colors}
-                        hair_colors={infoSpecies[index]?.hair_colors}
-                        language={infoSpecies[index]?.language}
-                      />
+                    <Card
+                    type="species"
+                    title={item.name}
+                    id={item.uid}
+                    classification={infoSpecies[index]?.classification}
+                    designation={infoSpecies[index]?.designation}
+                    average_height={infoSpecies[index]?.average_height}
+                    average_lifespan={infoSpecies[index]?.average_lifespan}
+                    eye_colors={infoSpecies[index]?.eye_colors}
+                    hair_colors={infoSpecies[index]?.hair_colors}
+                    language={infoSpecies[index]?.language}
+                  />
                     </div>
                   ))}
                 </div>

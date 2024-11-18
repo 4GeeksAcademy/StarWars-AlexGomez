@@ -43,7 +43,7 @@ const AsideMenu = () => {
   const toggleSidebar = () => {
     sidebarRef.current.classList.toggle("close");
   };
-console.log(window.innerWidth);
+
 
   useEffect(() => {
     const sidebar = sidebarRef.current;

@@ -41,14 +41,16 @@ const PlanetsCard = ({ data }) => {
               key={item.uid}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
-              <Card
-                type="planets"
-                title={item.name}
-                climate={infoPlanets[index]?.climate}
-                population={infoPlanets[index]?.population}
-                terrain={infoPlanets[index]?.terrain}
-                diameter={infoPlanets[index]?.diameter}
-              />
+            
+               <Card
+                    type="planets"
+                    title={item.name}
+                    id={item.uid}
+                    climate={infoPlanets[index]?.climate}
+                    population={infoPlanets[index]?.population}
+                    terrain={infoPlanets[index]?.terrain}
+                    diameter={infoPlanets[index]?.diameter}
+                  />
             </div>
           ))}
         </div>

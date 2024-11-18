@@ -3,11 +3,11 @@ import { Context } from "../store/appContext";
 import { Card } from "../component/Card.jsx";
 
 const VehiclesCard = ({ data }) => {
-  const randomcars = [4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
   const { store } = useContext(Context);
   const [width, setWidth] = useState(window.innerWidth);
   const infoVehicles = store.infoVehicles;
   const groupedData = [];
+  let counter = -1; 
   for (let i = 0; i < data.length; i += 3) {
     groupedData.push(data.slice(i, i + 3));
   }
@@ -18,7 +18,7 @@ const VehiclesCard = ({ data }) => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="col-sm-12 col-md-6 col-lg-12 text-right">
+      <div className="">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
           data-bs-target="#carouselExampleIndicators"
@@ -41,10 +41,12 @@ const VehiclesCard = ({ data }) => {
               key={item.uid}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
-              <Card
+                {  counter += 1}
+                  <Card
+                    id={counter}
                 type="vehicles"
                 title={item.name}
-                id={item.uid}
+               
                 model={infoVehicles[index]?.model}
                 vehicle_class={infoVehicles[index]?.vehicle_class}
                 manufacturer={infoVehicles[index]?.manufacturer}
@@ -71,11 +73,11 @@ const VehiclesCard = ({ data }) => {
                   key={index}
                   className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
                 >
+                     {  counter += 1}
                   <Card
-                    imgIdc={item.uid}
+                    id={counter}
                     type="vehicles"
                     title={item.name}
-                    id={item.uid}
                     model={infoVehicles[index]?.model}
                     vehicle_class={infoVehicles[index]?.vehicle_class}
                     manufacturer={infoVehicles[index]?.manufacturer}

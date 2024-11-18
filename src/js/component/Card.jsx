@@ -7,7 +7,6 @@ export const Card = (props) => {
   const nave = [5, 9, 10, 11, 12, 13, 15, 5, 9, 10];
   const car = [4, 6, 7, 8, 14, 16, 18, 19, 20, 24];
   const Films = [1, 2, 3, 4, 5, 6, 7, 8, 9, 3, 4];
-  const { store, actions } = useContext(Context);
   const [imagen, setImagen] = useState("");
 
   useEffect(() => {
@@ -17,21 +16,27 @@ export const Card = (props) => {
 
     let imageUrl = "";
     if (props.type === "starships") {
-      let cc = nave[props.idStar - 1];
-
-      imageUrl = `https://starwars-visualguide.com/assets/img/starships/${cc}.jpg`;
+      let cc = nave[props.id ];
+      
+      
+      imageUrl = `https://starwars-visualguide.com/assets/img/starships/${nave[props.id]}.jpg`;
+  
+      
     } else if (props.type === "films") {
       imageUrl = `https://starwars-visualguide.com/assets/img/films/${
         Films[props.imgIdF]
       }.jpg`;
     } else if (props.type === "planets") {
       imageUrl = `https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`;
-    } else if (props.type === "species") {
+    } else 
+    
+    if (props.type === "species") {
       imageUrl = `https://starwars-visualguide.com/assets/img/species/${props.id}.jpg`;
+
+
     } else if (props.type === "vehicles") {
-      imageUrl = `https://starwars-visualguide.com/assets/img/vehicles/${
-        car[props.imgIdc - 1]
-      }.jpg`;
+      imageUrl = `https://starwars-visualguide.com/assets/img/vehicles/${ car[props.id] }.jpg`;
+
     } else if (props.type === "people") {
       imageUrl = `https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`;
     }
@@ -42,12 +47,7 @@ export const Card = (props) => {
     img.src = imageUrl;
   }, [props.id, props.type, props.imgId, props.imgIdc]);
 
-  const handleClick = (name) => {
-    const updatedFavorites = store.favorites.includes(name)
-      ? store.favorites.filter((favorite) => favorite !== name)
-      : [...store.favorites, name];
-    actions.addFavorite(updatedFavorites);
-  };
+ 
 
   return (
     <div className="cards">

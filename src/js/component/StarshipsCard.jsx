@@ -6,8 +6,8 @@ const StarshipsCard = ({ data }) => {
   const { store } = useContext(Context);
   const infoStarships = store.infoStarships;
   const [width, setWidth] = useState(window.innerWidth);
-
   const groupedData = [];
+  let counter = -1; 
   for (let i = 0; i < data.length; i += 3) {
     groupedData.push(data.slice(i, i + 3));
   }
@@ -18,7 +18,7 @@ const StarshipsCard = ({ data }) => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="col-sm-12 col-md-6 col-lg-12 text-right">
+      <div className="">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
           data-bs-target="#carouselExampleIndicators"
@@ -41,10 +41,12 @@ const StarshipsCard = ({ data }) => {
               key={item.uid}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
-               <Card
+             
+             {  counter += 1}
+             <Card
                     type="starships"
                     title={item.name}
-                    idStar={item.uid}
+                    id={counter}
                     model={infoStarships[index]?.model}
                     manufacturer={infoStarships[index]?.manufacturer}
                     cost_in_credits={infoStarships[index]?.cost_in_credits}
@@ -60,11 +62,11 @@ const StarshipsCard = ({ data }) => {
                     MGLT={infoStarships[index]?.MGLT}
                     starship_class={infoStarships[index]?.starship_class}
                   />
-             
             </div>
           ))}
         </div>
       ) : (
+        
       <div className="carousel-inner">
         {groupedData.map((group, idx) => (
           <div
@@ -77,10 +79,15 @@ const StarshipsCard = ({ data }) => {
                   key={index}
                   className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
                 >
-                  <Card
+              {  counter += 1}
+           
+               
+                  
+                  
+              <Card
                     type="starships"
                     title={item.name}
-                    idStar={item.uid}
+                    id={counter}
                     model={infoStarships[index]?.model}
                     manufacturer={infoStarships[index]?.manufacturer}
                     cost_in_credits={infoStarships[index]?.cost_in_credits}

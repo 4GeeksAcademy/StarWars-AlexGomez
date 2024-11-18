@@ -1,11 +1,13 @@
-import React, { useEffect, useContext,useState  } from "react";
+import React, { useEffect, useContext,useState } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
+
 
 const FilmsCards = ({ data }) => {
   const { store, actions } = useContext(Context);
   const infoFilms = store.infoFilms;
   const [width, setWidth] = useState(window.innerWidth);
+
   useEffect(() => {
     if (store.films.length === 0) {
       actions.getData("films");
@@ -23,7 +25,7 @@ const FilmsCards = ({ data }) => {
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="col-sm-12 col-md-6 col-lg-12 text-right">
+      <div className="">
         <button
           className="btn-next btn btn-secondary mb-3 mr-1"
           data-bs-target="#carouselExampleIndicators"
@@ -32,9 +34,6 @@ const FilmsCards = ({ data }) => {
           <i className="fa fa-arrow-left"></i>
         </button>
         <button
-
-
-
           className="btn btn-secondary mb-3 btn-next"
           data-bs-target="#carouselExampleIndicators"
           data-bs-slide="next"
@@ -42,7 +41,6 @@ const FilmsCards = ({ data }) => {
           <i className="fa fa-arrow-right"></i>
         </button>
       </div>
-
       {width < 800 ? (
         <div style={{ width: { width } }} className="carousel-inner">
           {data.map((item, index) => (
@@ -50,19 +48,21 @@ const FilmsCards = ({ data }) => {
               key={item.uid}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
-              <Card
-                type="films"
-                title={item.title}
-                episode_id={item.episode_id}
-                opening_crawl={item.opening_crawl}
-                director={item.director}
-                producer={item.producer}
-                release_date={item.release_date}
-              />
+            <Card
+                    imgIdF={item.uid}
+                    type="films"
+                    title={infoFilms[index]?.title}
+                    episode_id={infoFilms[index]?.episode_id}
+                    opening_crawl={infoFilms[index]?.opening_crawl}
+                    director={infoFilms[index]?.director}
+                    producer={infoFilms[index]?.producer}
+                    release_date={infoFilms[index]?.release_date}
+                  />
             </div>
           ))}
         </div>
       ) : (
+       
       <div className="carousel-inner">
         {groupedData.map((group, idx) => (
           <div
@@ -82,6 +82,7 @@ const FilmsCards = ({ data }) => {
                     producer={infoFilms[index]?.producer}
                     release_date={infoFilms[index]?.release_date}
                   />
+               
                 </div>
               ))}
             </div>
