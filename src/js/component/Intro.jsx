@@ -33,7 +33,7 @@ const Intro = () => {
       document.body.style.overflowY = "hidden";
       hideIntro();
       actions.intro();
-    }, 20); //24000 ms = 24 seconds
+    }, 24000); //24000 ms = 24 seconds
     return () => clearTimeout(timer);
   }, []);
   useEffect(() => {

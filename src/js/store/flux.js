@@ -4,7 +4,7 @@ const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
       intro: true,
-      url:"",
+      url: "",
       films: [],
       people: [],
       planets: [],
@@ -20,20 +20,19 @@ const getState = ({ getStore, getActions, setStore }) => {
       favorites: [],
       index: null,
       datosNav: [],
-      with:window.innerWidth,
+      with: window.innerWidth,
     },
 
     actions: {
-      SetdataNav: async (typo,id,url) => {
-            setStore({datosNav: [typo,id,url]});
-      }
-      ,
+      SetdataNav: async (typo, id, url) => {
+        setStore({ datosNav: [typo, id, url] });
+      },
       intro: () => {
         setStore({ intro: false });
       },
 
       fetchDetails: async (items, detailUrl) => {
-        if (!items || items.length === 0) return []; 
+        if (!items || items.length === 0) return [];
 
         const promises = items.map(async (item) => {
           try {
@@ -55,7 +54,8 @@ const getState = ({ getStore, getActions, setStore }) => {
           const parsedData = JSON.parse(storedData);
           setStore({
             [category]: parsedData.results || [],
-            [`info${category.charAt(0).toUpperCase() + category.slice(1)}`]: parsedData.details || [],
+            [`info${category.charAt(0).toUpperCase() + category.slice(1)}`]:
+              parsedData.details || [],
           });
           return;
         }
@@ -68,19 +68,28 @@ const getState = ({ getStore, getActions, setStore }) => {
           let results, details;
           try {
             const jsonData = JSON.parse(data);
-            results = category === "films" ? jsonData.result : jsonData.results || []; 
-            details = await getActions().fetchDetails(results, `${baseUrl}/${category}`);
+            results =
+              category === "films" ? jsonData.result : jsonData.results || [];
+            details = await getActions().fetchDetails(
+              results,
+              `${baseUrl}/${category}`
+            );
           } catch (error) {
-        
             return;
           }
 
           setStore({ [category]: results });
-          setStore({ [`info${category.charAt(0).toUpperCase() + category.slice(1)}`]: details });
+          setStore({
+            [`info${category.charAt(0).toUpperCase() + category.slice(1)}`]:
+              details,
+          });
 
           localStorage.setItem(category, JSON.stringify({ results, details }));
         } catch (error) {
-          console.error(`Error al obtener los datos de ${category} linea 78:`, error);
+          console.error(
+            `Error al obtener los datos de ${category} linea 78:`,
+            error
+          );
           setStore({ [category]: [] });
         }
       },
@@ -96,32 +105,42 @@ const getState = ({ getStore, getActions, setStore }) => {
       },
 
       search: (value) => {
-      
-      
-        if (typeof value !== 'string') {
-          console.error('Search value must be a string');
-          return; 
+        if (typeof value !== "string") {
+          console.error("Search value must be a string");
+          return;
         }
-        const types = ['people', 'vehicles', 'species', 'planets', 'starships', 'films'];
+        const types = [
+          "people",
+          "vehicles",
+          "species",
+          "planets",
+          "starships",
+          "films",
+        ];
         const store = getStore();
 
         const filtered = types.reduce((acc, type) => {
-          const data = store[type] || []; 
-          acc[`filtered${type.charAt(0).toUpperCase() + type.slice(1)}`] = data.filter(item => { 
-            return item.name && typeof item.name === 'string' && item.name.toLowerCase().includes(value.toLowerCase());
-          });
+          const data = store[type] || [];
+          acc[`filtered${type.charAt(0).toUpperCase() + type.slice(1)}`] =
+            data.filter((item) => {
+              return (
+                item.name &&
+                typeof item.name === "string" &&
+                item.name.toLowerCase().includes(value.toLowerCase())
+              );
+            });
           return acc;
         }, {});
-    
+
         setStore(filtered);
       },
-      
+
       setIndex: (index) => {
         setStore({ index });
       },
       setUrl: (url) => {
         setStore({ url });
-      }
+      },
     },
   };
 };

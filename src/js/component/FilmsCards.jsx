@@ -1,7 +1,6 @@
-import React, { useEffect, useContext,useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
-
 
 const FilmsCards = ({ data }) => {
   const { store, actions } = useContext(Context);
@@ -48,47 +47,45 @@ const FilmsCards = ({ data }) => {
               key={item.uid}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
-            <Card
-                    imgIdF={item.uid}
-                    type="films"
-                    title={infoFilms[index]?.title}
-                    episode_id={infoFilms[index]?.episode_id}
-                    opening_crawl={infoFilms[index]?.opening_crawl}
-                    director={infoFilms[index]?.director}
-                    producer={infoFilms[index]?.producer}
-                    release_date={infoFilms[index]?.release_date}
-                  />
+              <Card
+                imgIdF={item.uid}
+                type="films"
+                title={infoFilms[index]?.title}
+                episode_id={infoFilms[index]?.episode_id}
+                opening_crawl={infoFilms[index]?.opening_crawl}
+                director={infoFilms[index]?.director}
+                producer={infoFilms[index]?.producer}
+                release_date={infoFilms[index]?.release_date}
+              />
             </div>
           ))}
         </div>
       ) : (
-       
-      <div className="carousel-inner">
-        {groupedData.map((group, idx) => (
-          <div
-            key={idx}
-            className={`carousel-item ${idx === 0 ? "active" : ""}`}
-          >
-            <div className="row">
-              {group.map((item, index) => (
-                <div key={index} className="col-12 col-lg-4 mb-3">
-                  <Card
-                    imgIdF={item.uid}
-                    type="films"
-                    title={infoFilms[index]?.title}
-                    episode_id={infoFilms[index]?.episode_id}
-                    opening_crawl={infoFilms[index]?.opening_crawl}
-                    director={infoFilms[index]?.director}
-                    producer={infoFilms[index]?.producer}
-                    release_date={infoFilms[index]?.release_date}
-                  />
-               
-                </div>
-              ))}
+        <div className="carousel-inner">
+          {groupedData.map((group, idx) => (
+            <div
+              key={idx}
+              className={`carousel-item ${idx === 0 ? "active" : ""}`}
+            >
+              <div className="row">
+                {group.map((item, index) => (
+                  <div key={index} className="col-12 col-lg-4 mb-3">
+                    <Card
+                      imgIdF={item.uid}
+                      type="films"
+                      title={infoFilms[index]?.title}
+                      episode_id={infoFilms[index]?.episode_id}
+                      opening_crawl={infoFilms[index]?.opening_crawl}
+                      director={infoFilms[index]?.director}
+                      producer={infoFilms[index]?.producer}
+                      release_date={infoFilms[index]?.release_date}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       )}
     </div>
   );

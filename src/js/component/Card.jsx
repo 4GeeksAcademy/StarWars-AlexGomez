@@ -16,27 +16,23 @@ export const Card = (props) => {
 
     let imageUrl = "";
     if (props.type === "starships") {
-      let cc = nave[props.id ];
-      
-      
-      imageUrl = `https://starwars-visualguide.com/assets/img/starships/${nave[props.id]}.jpg`;
-  
-      
+      let cc = nave[props.id];
+
+      imageUrl = `https://starwars-visualguide.com/assets/img/starships/${
+        nave[props.id]
+      }.jpg`;
     } else if (props.type === "films") {
       imageUrl = `https://starwars-visualguide.com/assets/img/films/${
         Films[props.imgIdF]
       }.jpg`;
     } else if (props.type === "planets") {
       imageUrl = `https://starwars-visualguide.com/assets/img/planets/${props.id}.jpg`;
-    } else 
-    
-    if (props.type === "species") {
+    } else if (props.type === "species") {
       imageUrl = `https://starwars-visualguide.com/assets/img/species/${props.id}.jpg`;
-
-
     } else if (props.type === "vehicles") {
-      imageUrl = `https://starwars-visualguide.com/assets/img/vehicles/${ car[props.id] }.jpg`;
-
+      imageUrl = `https://starwars-visualguide.com/assets/img/vehicles/${
+        car[props.id]
+      }.jpg`;
     } else if (props.type === "people") {
       imageUrl = `https://starwars-visualguide.com/assets/img/characters/${props.id}.jpg`;
     }
@@ -46,8 +42,6 @@ export const Card = (props) => {
     img.onerror = () => setImagen(defaultImage);
     img.src = imageUrl;
   }, [props.id, props.type, props.imgId, props.imgIdc]);
-
- 
 
   return (
     <div className="cards">

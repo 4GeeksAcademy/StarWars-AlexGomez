@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { Card } from "../component/Card.jsx";
 import { Context } from "../store/appContext";
 
@@ -34,57 +34,50 @@ const PlanetsCard = ({ data }) => {
         </button>
       </div>
 
-      {width < 800 ? (  
-        <div style={{ width: { width } }}  className="carousel-inner">
+      {width < 800 ? (
+        <div style={{ width: { width } }} className="carousel-inner">
           {data.map((item, index) => (
             <div
               key={item.uid}
               className={`carousel-item ${index === 0 ? "active" : ""}`}
             >
-            
-               <Card
-                    type="planets"
-                    title={item.name}
-                    id={item.uid}
-                    climate={infoPlanets[index]?.climate}
-                    population={infoPlanets[index]?.population}
-                    terrain={infoPlanets[index]?.terrain}
-                    diameter={infoPlanets[index]?.diameter}
-                  />
+              <Card
+                type="planets"
+                title={item.name}
+                id={item.uid}
+                climate={infoPlanets[index]?.climate}
+                population={infoPlanets[index]?.population}
+                terrain={infoPlanets[index]?.terrain}
+                diameter={infoPlanets[index]?.diameter}
+              />
             </div>
           ))}
         </div>
       ) : (
-        
-      <div className="carousel-inner">
-        {groupedData.map((group, idx) => (
-          <div
-            key={idx}
-            className={`carousel-item ${idx === 0 ? "active" : ""}`}
-          >
-            <div className="row">
-              {group.map((item, index) => (
-                <div
-                  key={index}
-                  className="col-12 col-lg-4 mb-3"
-                >
-                  <Card
-                    type="planets"
-                    title={item.name}
-                    id={item.uid}
-                    climate={infoPlanets[index]?.climate}
-                    population={infoPlanets[index]?.population}
-                    terrain={infoPlanets[index]?.terrain}
-                    diameter={infoPlanets[index]?.diameter}
-                  />
-                </div>
-              ))}
+        <div className="carousel-inner">
+          {groupedData.map((group, idx) => (
+            <div
+              key={idx}
+              className={`carousel-item ${idx === 0 ? "active" : ""}`}
+            >
+              <div className="row">
+                {group.map((item, index) => (
+                  <div key={index} className="col-12 col-lg-4 mb-3">
+                    <Card
+                      type="planets"
+                      title={item.name}
+                      id={item.uid}
+                      climate={infoPlanets[index]?.climate}
+                      population={infoPlanets[index]?.population}
+                      terrain={infoPlanets[index]?.terrain}
+                      diameter={infoPlanets[index]?.diameter}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
-      </div>
-
-      
+          ))}
+        </div>
       )}
     </div>
   );

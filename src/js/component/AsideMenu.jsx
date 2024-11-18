@@ -92,7 +92,7 @@ const AsideMenu = () => {
   return (
     <div className="col-3 col-lg-3 col-md-3">
       <div id="myPopup" className="popup">
-        Hello, options there
+        Hello, options there!
       </div>
 
       <nav ref={sidebarRef} className="sidebar locked  flex-column">

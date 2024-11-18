@@ -1,4 +1,4 @@
-import React, { useContext,useState } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../store/appContext";
 import { Card } from "../component/Card.jsx";
 
@@ -33,61 +33,56 @@ const PeopleCards = ({ data }) => {
           <i className="fa fa-arrow-right"></i>
         </button>
       </div>
-      {  width < 800 ?
-      <div style={{width:{width}}} 
-      
-      className="carousel-inner">
-        {data.map((item, index) => (
-          <div
-            key={item.uid}
-            className={`carousel-item ${index === 0 ? "active" : ""}`}
-          >
-            <Card
-              type="people"
-              title={item.name}
-              id={item.uid}
-              birth_year={infoPeople[index]?.birth_year}
-              height={infoPeople[index]?.height}
-              hair_color={infoPeople[index]?.hair_color}
-              eye_color={infoPeople[index]?.eye_color}
-              gender={infoPeople[index]?.gender}
-            />
-          </div>
-        ))}
-      </div>:
-
-      
-      <div className="carousel-inner">
-        {groupedData.map((group, idx) => (
-          <div
-            key={idx}
-            className={`carousel-item ${idx === 0 ? "active" : ""}`}
-          >
-            <div className="row">
-              {group.map((item, index) => (
-                <div
-                  key={index}
-                  className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
-                >
-                  <Card
-                    type="people"
-                    title={item.name}
-                    id={item.uid}
-                    birth_year={infoPeople[index]?.birth_year}
-                    height={infoPeople[index]?.height}
-                    hair_color={infoPeople[index]?.hair_color}
-                    eye_color={infoPeople[index]?.eye_color}
-                    gender={infoPeople[index]?.gender}
-                  />
-                </div>
-              ))}
+      {width < 800 ? (
+        <div style={{ width: { width } }} className="carousel-inner">
+          {data.map((item, index) => (
+            <div
+              key={item.uid}
+              className={`carousel-item ${index === 0 ? "active" : ""}`}
+            >
+              <Card
+                type="people"
+                title={item.name}
+                id={item.uid}
+                birth_year={infoPeople[index]?.birth_year}
+                height={infoPeople[index]?.height}
+                hair_color={infoPeople[index]?.hair_color}
+                eye_color={infoPeople[index]?.eye_color}
+                gender={infoPeople[index]?.gender}
+              />
             </div>
-          </div>
-        ))}
-      </div>
-      }
-
-
+          ))}
+        </div>
+      ) : (
+        <div className="carousel-inner">
+          {groupedData.map((group, idx) => (
+            <div
+              key={idx}
+              className={`carousel-item ${idx === 0 ? "active" : ""}`}
+            >
+              <div className="row">
+                {group.map((item, index) => (
+                  <div
+                    key={index}
+                    className="col-12 col-sm-6 col-md-4 col-lg-4 mb-3 card-container"
+                  >
+                    <Card
+                      type="people"
+                      title={item.name}
+                      id={item.uid}
+                      birth_year={infoPeople[index]?.birth_year}
+                      height={infoPeople[index]?.height}
+                      hair_color={infoPeople[index]?.hair_color}
+                      eye_color={infoPeople[index]?.eye_color}
+                      gender={infoPeople[index]?.gender}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

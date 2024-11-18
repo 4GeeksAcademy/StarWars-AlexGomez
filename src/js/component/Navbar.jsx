@@ -58,7 +58,7 @@ export const Navbar = () => {
                       >
                         {item}
                       </Link>
-                    
+
                       <i
                         className="fas fa-trash-alt"
                         onClick={() => {

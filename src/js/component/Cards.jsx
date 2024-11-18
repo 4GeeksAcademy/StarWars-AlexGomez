@@ -67,19 +67,15 @@ export const Cards = () => {
   };
 
   return (
-  
-      <section  className="cards_right ">
-        <div className="container">
-          <div className="row">
-            <div className="col-sm-12 col-md-6 col-lg-12">
-              <h3 className="mb-3">
-                {type === "people" ? "Characters" : type}
-              </h3>
-            </div>
+    <section className="cards_right ">
+      <div className="container">
+        <div className="row">
+          <div className="col-sm-12 col-md-6 col-lg-12">
+            <h3 className="mb-3">{type === "people" ? "Characters" : type}</h3>
           </div>
-          <div className="row">{renderCards()}</div>
         </div>
-      </section>
-    
+        <div className="row">{renderCards()}</div>
+      </div>
+    </section>
   );
 };
